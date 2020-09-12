@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'asset_url'  => 'http://vmi-app.herokuapp.com/',
+    'asset_url'  => 'http://vmi-app.herokuapp.com',
 
     /*
     |--------------------------------------------------------------------------
