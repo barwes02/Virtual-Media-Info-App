@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'asset_url'  => 'http://localhost/moviedb-master/public/index.php',
+    'asset_url'  => 'http://vmi-app.herokuapp.com/',
 
     /*
     |--------------------------------------------------------------------------

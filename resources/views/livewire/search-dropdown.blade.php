@@ -30,7 +30,6 @@
             class="z-50 absolute bg-gray-800 text-sm rounded w-64 mt-2" 
             x-show.transition.opacity="isOpen"
         >
-          {{-- <?php echo dd($searchResults) ?> --}}
             @if($searchResults->count() > 0)
             <ul>
                 @foreach ($searchResults as $result)

@@ -52,7 +52,7 @@
         var elem = document.querySelector('.grid');
         var infScroll = new InfiniteScroll( elem, {
             // options
-            path: "/moviedb-master/public/index.php/actors/page/@{{#}}",
+            path: "/actors/page/@{{#}}",
             append: '.actor',
             status: '.page-load-status'
             //history: false,
