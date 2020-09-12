@@ -37,43 +37,43 @@
 
             <div x-data="{ isOpen: false }">
                 @if (count($movie['videos']['results']) > 0)
-                <div class="mt-12">
-                    <button 
-                        @click="isOpen = true"
-                        class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold
-                        px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150"
-                    >
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
-                        </svg>
-                        <span class="ml-2">Play Trailer</span>
-                    </buttom>
-                </div>
-                @endif
+                    <div class="mt-12">
+                        <button 
+                            @click="isOpen = true"
+                            class="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold
+                            px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150"
+                        >
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                            </svg>
+                            <span class="ml-2">Play Trailer</span>
+                        </buttom>
+                    </div>
 
-                <div 
-                    style="background-color: rgba(0, 0, 0, .5);"
-                    class="fixed z-50 top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
-                    x-show.transition.opacity="isOpen"
-                >
-                    <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
-                        <div class="bg-gray-900 rounded">
-                            <div class="flex justify-end pr-4 pt-2">
-                                <button 
-                                @click="isOpen = false" 
-                                class="text-3xl leading-none hover:text-gray-300">&times;</button>
-                            </div>
-                            <div class="modal-body px-8 py-8">
-                                <div class="responsive-container overflow-hidden relative" 
-                                    style="padding-top: 56.25%">
-                                    <iframe width="560" height="315" class="responsive-iframe absolute top-0 left-0 w-full h-full" 
-                                    src="https://www.youtube.com/embed/{{ $movie['videos']['results'][0]['key'] }}" style="border:0;" allow="autoplay; encrypted-medi" 
-                                    allowfullscreen></iframe>
+                    <div 
+                        style="background-color: rgba(0, 0, 0, .5);"
+                        class="fixed z-50 top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
+                        x-show.transition.opacity="isOpen"
+                    >
+                        <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+                            <div class="bg-gray-900 rounded">
+                                <div class="flex justify-end pr-4 pt-2">
+                                    <button 
+                                    @click="isOpen = false" 
+                                    class="text-3xl leading-none hover:text-gray-300">&times;</button>
+                                </div>
+                                <div class="modal-body px-8 py-8">
+                                    <div class="responsive-container overflow-hidden relative" 
+                                        style="padding-top: 56.25%">
+                                        <iframe width="560" height="315" class="responsive-iframe absolute top-0 left-0 w-full h-full" 
+                                        src="https://www.youtube.com/embed/{{ $movie['videos']['results'][0]['key'] }}" style="border:0;" allow="autoplay; encrypted-medi" 
+                                        allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -87,7 +87,11 @@
         @foreach ($movie['cast'] as $cast) 
                 <div class="mt-8">
                     <a href="{{ route('actors.show', $cast['id']) }}">
-                        <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path'] }}" alt="{{ $movie['title'] }}" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                        @if (isset($cast['profile_path']))
+                            <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path'] }}" alt="{{ $movie['title'] }}" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                        @else
+                            <img src="https://ui-avatars.com/api/?size=235&name={{ $cast['name'] }}" alt="poster" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                        @endif
                     </a>
                     <div class="mt-2">
                         <a href="{{ route('actors.show', $cast['id']) }}" class="text-lg mt-2 hover:text-gray-300">{{ $cast['character'] }}</a>

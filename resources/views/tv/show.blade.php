@@ -86,8 +86,11 @@
         @foreach ($tvshow['cast'] as $cast) 
                 <div class="mt-8">
                     <a href="{{ route('actors.show', $cast['id']) }}">
-                        <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path'] }}" alt="{{ $tvshow['name'] }}" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                    </a>
+                        @if (isset($cast['profile_path']))
+                            <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path'] }}" alt="{{ $tvshow['name'] }}" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                        @else
+                            <img src="https://ui-avatars.com/api/?size=235&name={{ $cast['name'] }}" alt="poster" class="w-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+                        @endif                    </a>
                     <div class="mt-2">
                         <a href="{{ route('actors.show', $cast['id']) }}" class="text-lg mt-2 hover:text-gray-300">{{ $cast['character'] }}</a>
                         <div class="text-sm">
