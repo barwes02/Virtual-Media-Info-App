@@ -63,7 +63,7 @@
         <h2 class="text-4xl font-semibold">Credits</h2>
         <ul class="list-disc leading-loose pl-5 mt-8">
         @foreach ($credits as $credit)
-            <li>{{ $credit['release_year'] }} &middot; <strong>{{ $credit['title'] }}</strong> as {{ $credit['character'] }}</li>
+            <li><a class="hover:underline" href="{{ $credit['linkToPage'] }}">{{ $credit['release_year'] }} &middot; <strong>{{ $credit['title'] }}</strong> as {{ $credit['character'] }}</a></li>
         @endforeach
         </ul>
     </div>

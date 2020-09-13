@@ -28,8 +28,10 @@
                 <div class="flex mt-4">
                        @foreach ($movie['crew'] as $crew) 
                                 <div class="mr-8">
-                                    <div>{{ $crew['name'] }}</div>
-                                    <div class="text-sm text-gray-400">{{ $crew['job'] }}</div>
+                                    <a class="hover:underline" href="{{ route('actors.show', $crew['id']) }}">
+                                        <div>{{ $crew['name'] }}</div>
+                                        <div class="text-sm text-gray-400">{{ $crew['job'] }}</div>
+                                    </a>
                                 </div>
                        @endforeach
                 </div>

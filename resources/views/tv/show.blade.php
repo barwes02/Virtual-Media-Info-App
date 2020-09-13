@@ -26,10 +26,12 @@
             <div class="mt-12">
                 <div class="flex mt-4">
                        @foreach ($tvshow['created_by'] as $crew) 
+                            <a class="hover:underline" href="{{ route('actors.show', $crew['id']) }}">
                                 <div class="mr-8">
                                     <div>{{ $crew['name'] }}</div>
                                     <div class="text-sm text-gray-400">Creator</div>
                                 </div>
+                            </a>
                        @endforeach
                 </div>
             </div>
@@ -48,8 +50,7 @@
                         <span class="ml-2">Play Trailer</span>
                     </buttom>
                 </div>
-                @endif
-
+    
                 <div 
                     style="background-color: rgba(0, 0, 0, .5);"
                     class="fixed z-50 top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto"
@@ -73,6 +74,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

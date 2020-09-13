@@ -1,6 +1,14 @@
 <div>
     <div class="mt-8">
+    @if (isset($movie['media_type']))
+        @if($movie['media_type'] == 'tv')
+            <a href="{{ route('tv.show', $movie['id']) }}">
+        @else
+            <a href="{{ route('movies.show', $movie['id']) }}">
+        @endif
+    @else
         <a href="{{ route('movies.show', $movie['id']) }}">
+    @endif
             <img src="{{ $movie['poster_path'] }}" alt="Poster" class="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
         </a>
         <div class="mt-2">

@@ -17,12 +17,12 @@ class TvController extends Controller
     public function index()
     {
         $popularTV = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/tv/popular')
+            ->get('https://api.themoviedb.org/3/tv/on_the_air/?region=NZ')
             ->json()['results'];
 
         
         $topRatedTv = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/tv/top_rated')
+            ->get('https://api.themoviedb.org/3/tv/top_rated/?region=NZ')
             ->json()['results'];
 
         $genres = Http::withToken(config('services.tmdb.token'))

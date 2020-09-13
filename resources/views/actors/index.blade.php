@@ -29,19 +29,6 @@
             </div>
             <p class="infinite-scroll-error my-8 text-4xl">No more pages to load</p>
         </div>
-
-<!--    <div class="flex justify-between mt-16">
-            @if ($previous)
-                <a href="{{ route('actors.pagination', $previous) }}">Previous</a>
-            @else
-                <div></div>
-            @endif
-            @if ($next)
-                <a href="{{ url('/actors/page/' . $next) }}">Next</a>
-            @else
-                <div></div>
-            @endif
-        </div> -->
     </div>
 @endsection
 
