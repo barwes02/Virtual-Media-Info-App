@@ -25,13 +25,13 @@
                         </svg>Virtual Media Info App</a>
                 </li>
                 <li class="md:ml-12 mt-3 md:mt-0">
-                    <a href="{{ route('movies.index') }}" class="hover:text-gray-300 no-underline">Movies</a>
+                    <a href="{{ route('movies.index') }}" class="hover:text-gray-500">Movies</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="{{ route('tv.index') }}" class="hover:text-gray-500">TV Shows</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="{{ route('actors.index') }}" class="no-underline hover:text-gray-300 ">Actors</a>
+                    <a href="{{ route('actors.index') }}" class="hover:text-gray-500">Actors</a>
                 </li>
             </ul>
             <div class="flex flex-col md:flex-row items-center">
